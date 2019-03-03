@@ -1,0 +1,395 @@
+Java概念
+	Java就是人与计算机之间进行信息交流沟通的一种特殊语言。
+
+	Java特点：跨平台性，开源，垃圾回收机制，面向对象,多线程，简单
+	API：应用程序编程接口。
+	SDK：软件开发工具包，用于提高开发效率。
+	JVM：Java虚拟机
+	JDK：Java开发工具包
+	JRE：Java运行环境
+	JVM>JDK>JRE
+注意点：
+	文件扩展名问题
+	java区分大小写
+	main方法（可执行 java
+	{}
+	文件名和类名相同
+	
+	
+	1、java最小的单位是一个类
+	2、类如果想运行，必须提供主方法  public static void main(String[] args){}
+		public  --> 权限修饰符
+		static  --> 修饰符
+		void    --> 方法的返回值， void代表无返回值
+		main    --> 方法名 
+		()      --> 标识前面的main是一个方法
+		String  --> 类 ,JDK自带的类
+		args    --> 方法的参数 ， 变量 (用来存放数据的)
+		
+	3、Java的注释 （不参与编译的）
+			三种注释方式
+				1、单行注释 
+					对一行代码进行解释说明  //
+					一般写到代码的上面或者后面进行注释
+				2、多行注释
+					对一段代码进行阐述  以/* 开头 以  */ 结尾
+				3、文档注释
+					一般用来描述类，或者方法的作用 
+					以  /** 开头  以  */ 结尾
+	4、Java中的开发规范
+			标识符（类名， 方法名， 变量名）
+			标识符的命名规范：以字母，数字，下划线，美元符号组成，不能以数字开头
+			开发规范：
+				类名的每个单词的首字母大写
+				变量名，方法名要求首字母小写，每个单词的首字母大写
+			代码的缩进 4个半角空格
+
+
+			
+其他注意事项：
+    java类名和文件名的关系(主类名必须和文件名相同):
+	一个java源文件(.java)中,可以有好多个类(class),但是,最多只能有一个类(class)
+	被public修饰。如果有一个类被public修饰,那么这个源文件(.java)的名字就必须
+	和这个被public修饰的类的名字一致,而且还要首字母大写
+
+Java数据类型
+
+	byte，short，int， long， double， float， boolean， char 
+	整数型：byte，short，int，long    浮点型：float，double    布尔型(逻辑型)：boolean    字符型：char    
+	抽象（复合）数据类型：class(String也是类类型)，interface，数组
+	
+	封装类型：Byte，Short，Integet，Long，Double，Float，Boolean，Character
+	
+
+	byte: 长度：1个字节，范围：-128~127
+	short：长度：2个字节，范围：-2的15次方~2的15次方-1
+	int：长度：4个字节，范围：-2的31次方~2的31次方-1
+	long：长度：8个字节，范围：-2的63次方~2的63次方-1
+	float：长度：4个字节，范围：-3.403E38~3.403E38
+	double：长度：8个字节，范围：-1.798E308~1.798E308。
+	隐士转换是由数据类型级别低的向级别高的转换。数据类型由低到高分别为：
+	byte---short---int---long---float---double
+	强制类型转换：由高到低。
+
+
+Java表达式
+	
+	关系表达式：用来对参与比较的操作数进行关系判断，并最终返回布尔值：true或false
+
+		<,>,<=,>=,==,!=
+	
+	逻辑表达式：用逻辑运算符连接关系表达式，并进行布尔运算。
+		
+		&，&&的区别：单个“&”左边无论真假，右边都进行计算，双个&&，左边为假，右边不进行运算。
+		|，||的区别：单个“|”左边无论真假，右边都进行计算。双个“||”左边为真，右边不进行计算。
+	
+	赋值表达式：要求在赋值运算符的左边是变量，右边是表达式。表达式的值的类型应与左边变量类型一致或可以转换为左边变量的类型
+
+	条件表达式：条件表达式: 格式：布尔表达式？表达1：表达2
+		    三元运算符: ?:
+  		    int a = (2 > 3)? 4: 5;
+
+	运算符优先级：括号  --  一元运算符(++,--,+(取正)，-（去负))  --  算数运算符  --  关系运算符  --  逻辑运算符  --  条件运算符和赋值运算符
+
+流程控制
+	判断语句：
+		if(){}else{}，switch(表达式（不能为long，boolean，double）){
+					case1:
+						操作1的语句
+						break；
+					
+				}
+				
+	循环语句
+		while（条件）{}，：先循环在运算
+		do{}while（条件）：先计算再循环
+		for（条件）{}
+	跳转语句
+		break;：结束当前循环
+		continue：跳过本次循环
+		return：结束方法
+
+复合数据类型：
+
+	String  StringBuffer StringBulider
+	
+	String：这个类用于处理由多个字符组成的不可变数据。效率最低
+	StringBuffer：这个类用于存储和操作由多个字符组成的可变数据。线程安全
+	Stringbulider：长度可变，效率最高
+
+	equals():将此字符串与指定对象比较
+
+数组：
+	数组是一个固定长度的容器，他可以存储多个相同类型的值
+	两种声明形式：
+		int [] 名字=new int[10];
+		int [] 名字={1，2，3，4，5.....} 
+	lengh属性返回其数组长度。
+	一维数组：存储基本数据类型，引用数据类型
+	二维数组：存储数据类型为数组的一维数组
+Arrays数组工具类：
+	Arrays.sort(null)：给指定数据类型的数组升序
+	Arrays.tostring(): 返回指定数组内容的字符串表示形式。
+
+面向对象：
+	三大特征：封装，继承，多态
+	1.封装：封装是指隐藏对象的属性和实现细节get set 方法提供对外访问方式
+	2.继承：extends关键字 子类继承父类
+	3.多态：接口的多种不同的实现方式
+		上溯造型:父类引用指向子类对象 Person per=new Student();
+		下溯造型:子类引用指向父类对象 Student stu=(Student)per;
+	方法重载：
+		方法重载是指一个类中定义多个同名的方法，但要求每个方法具有不同的参数类型和参数个数
+	方法重写：
+		若子类中的方法与父类的方法具有相同的方法名，返回类型和参数表，则新方法将覆盖原方法
+
+	this关键字代表引用当前对象，super关键字代表当前对象的引用，他俩都在构造方法第一行定义但不能在同一行出现
+	
+	抽象类：关键字abstract
+		特点：1.抽象方法只能定义在抽象类中，抽象类和抽象方法必须由abstract修饰
+		           2.抽象方法只定义方法声明，并不定义方法实现
+		           3.抽象类不可以被创建对象
+		           4.只有通过子类继承抽象类并覆盖抽象类中所有抽象方法后，该子类才可以实例化
+		           5.有抽象方法的类必须是抽象类，抽象类可以有非抽象方法，抽象类就是用来继承的
+	
+	接口：关键字interface   用implements关键字实现接口，接口中包含的成员最常见的有全局变量，抽象方法
+	           固定修饰符：成员变量：public static final
+		               成员方法：public abstract
+	接口与继承的区别：
+		单继承，多实现。
+	抽象类和接口的区别：
+		抽象类的成员变量可以是变量也可以是常量，有构造方法，成员方法可以抽象也可以不抽象
+		接口成员变量只可以是常量，成员方法只可以是抽象方法
+		类与类之间单继承，类与接口多实现，接口与接口可以多继承
+	
+集合：
+    list列表 set集 map映射
+list：有存储顺序, 可重复
+      LinkedList、ArrayList、Vector
+区别：
+	结构： 
+		LinkedList：链表类型
+		ArrayList、Vector：数组类型
+	安全：
+		Vector的方法都是用Synchronized修饰的，是线程安全的
+		LinkedList、ArrayList都不是线程安全的
+	效率：
+		ArrayList线程不安全，效率高于Vector
+		查询、修改效率ArrayList相对于LinkedList较高
+		新增、删除效率ArrayList相对于LinkedList较低
+	扩容：
+		Vector可以定义初始容量，每次扩容翻倍 当前容量*2
+		ArrayList每次扩容为原容量的50% 当前容量*1.5
+		LinkedList每次容量加1 当前容量+1
+Set:无存储顺序, 不可重复
+	HashSet、TreeSet、LinkedHashSet
+
+HashSet  线程不安全，存取速度快。底层是以哈希表实现的。
+    哈希表里存放的是哈希值。HashSet存储元素的顺序并不是按照存入时的顺序（和List显然不同） 是按照哈希值来存的所以取数据也是按照哈希值取得。HashSet不存入重复元素的规则.使用hashcode和equals， HashSet集合在判断元素是否相同先判断hashCode方法，如果相同才会判断equals。如果不相同，是不会调用equals方法的。
+注意点：
+    引用到堆上同一个对象的两个引用是相等的。如果对两个引用调用hashCode方法，会得到相同的结果，如果对象所属的类没有覆盖Object的hashCode方法的话，hashCode会返回每个对象特有的序号（java是依据对象的内存地址计算出的此序号），所以两个不同的对象的hashCode值是不可能相等的。
+   如果想要让两个不同的Person对象视为相等的，就必须覆盖Object继下来的hashCode方	法和equals方法，因为Object  hashCode方法返回的是该对象的内存地址，所以必须重写hashCode方法，才能保证两个不同的对象具有相同的hashCode，同时也需要两个不同对象比较equals方法
+
+TreeSet：红-黑树的数据结构，默认对元素进行自然排序（String）。如果在比较的时候两个对象返回值为0，那么元素重复。红黑树算法的规则: 左小右大。
+给TreeSet指定排序规则。
+方式一：元素自身具备比较性
+元素自身具备比较性，需要元素实现Comparable接口，重写compareTo方法，也就是让元素自身具备比较性，这种方式叫做元素的自然排序也叫做默认排序。
+方式二：容器具备比较性
+当元素自身不具备比较性，或者自身具备的比较性不是所需要的。那么此时可以让容器自身具备。需要定义一个类实现接口Comparator，重写compare方法，并将该接口的子类实例对象作为参数传递给TreeSet集合的构造方法。
+当Comparable比较方式和Comparator比较方式同时存在时，以Comparator的比较方式为主；
+
+LinkedHashSet:会保存插入的顺序，不可重复，存取速度快。底层是以哈希表实现的
+
+Map: 键值对(用于保存映射关系)
+	HashMap、TreeMap、HashTable、LinkedHashMap
+Map中的元素是两个对象，一个对象作为键，一个对象作为值。键不可以重复，但是值可以重复。
+Map与Collection在集合框架中属并列存在
+Map存储元素使用put方法，Collection使用add方法
+Map集合没有直接取出元素的方法，而是先转成Set集合，在通过迭代获取元素
+Map集合中键要保证唯一性
+也就是Collection是单列集合, Map 是双列集合。
+ HashMap  采用哈希表实现，所以无序
+底层是哈希表数据结构，线程是不同步的，可以存入null键，null值。要保证键的唯一性，需要覆盖hashCode方法，和equals方法。
+ TreeMap  可以对健进行排序
+ Hashtable:
+底层是哈希表数据结构，线程是同步的，不可以存入null键，null值。
+效率较低，被HashMap 替代。
+ LinkedHashMap：
+该子类基于哈希表又融入了链表。可以Map集合进行增删提高效率。
+ TreeMap:
+底层是二叉树数据结构。可以对map集合中的键进行排序。需要使用Comparable或者Comparator 进行比较排序。return 0，来判断键的唯一性。
+遍历方式：
+1、将map 集合中所有的键取出存入set集合。
+	Set<K> keySet()   返回所有的key对象的Set集合
+                             再通过get方法获取键对应的值。
+2、 values() ，获取所有的值.
+	Collection<V> values()不能获取到key对象
+3、 Map.EntrySet  推荐使用   重点
+	Set<Map.Entry<k,v>> entrySet()
+		将map 集合中的键值映射关系打包成一个对象
+		Map.Entry对象通过Map.Entry 对象的getKey，
+		getValue获取其键和值。
+工具类：Collections、Arrays
+泛型：<类名>
+通配符：?
+泛型通配符：<?>
+可以对类型进行限定范围。
+？extends E: 接收E类型或者E的子类型。
+? super E: 接收E类型或者E的父类型。
+泛型的基本术语，以ArrayList<E>为例：<>念着typeof
+ArrayList<E>中的E称为类型参数变量
+注意：泛型是提供给javac编译器使用的，它用于限定集合的输入类型，让编译器在源代码级别上，即挡住向集合中插入非法数据。但编译器编译完带有泛形的java程序后，生成的class文件中将不再带有泛形信息，以此使程序运行效率不受到影响，这个过程称之为“擦除”。
+ArrayList<Integer>中的Integer称为实际类型参数
+整个称为ArrayList<E>泛型类型
+整个ArrayList<Integer>称为参数化的类型ParameterizedType
+
+迭代器
+    提供了一些方法专门处理集合中的元素.例如删除和获取集合中的元素，就叫做迭代器	
+    Iterable接口：Jdk1.5之后添加的新接口, Collection的父接口. 实现了Iterable的类就是可迭代的.并且支持增强for循环。该接口只有一个方法即获取迭代器的方法iterator（）可以获取每个容器自身的迭代器Iterator。
+	Iterator接口：该接口主要用于遍历集合对象，该类描述了遍历集合的常见方法
+		1、boolean hasNext() 判断集合中是否有元素，如果有元素可以迭代，就返回true。
+		2、 E next()  返回迭代的下一个元素，注意： 如果没有下一个元素时，调用next元素会抛出NoSuchElementException
+		3、void remove()从迭代器指向的集合中移除迭代器返回的最后一个元素（可选操作）。
+
+ListIterator：List特有的迭代器ListIterator
+	该迭代器支持在迭代过程中，添加元素和修改元素
+
+
+	try{
+		可能出现异常的代码
+	}
+	catch(异常类型)	{
+		发生异常时执行的内容
+	}
+	finally{
+		可选的
+		无论是否发生异常都会执行，且在return之前执行
+	}
+	自定义异常：Throws方法 继承Exception类，构造方法参数：String nassage { super（massage）}
+	throw 定义在方法体内 ，实例化一个异常，可以抛出也可以捕获
+	thorws 定义在方法体上 将异常向上传递
+1.运行时异常：编译时不会报错，运行时可能会产生异常
+
+  
+1.常见运行时异常：
+           1. ArrayIndexOutOfBoundsException 数组下标越界异常
+           2. NullPointerException 空指针异常
+           3. NumberFormatException 数字格式化异常 
+           4. ClassCastException 类型转换异常
+           5. ArithmeticException 算术异常        
+
+
+2.必检异常（非运行时异常）编译时异常
+	1.FileNotFoundException 文件未找到
+	2.IoException Io异常
+	3.error:程序中正常运行不应该出现的问题 
+                    
+  2.通配符：
+
+           <? entends Number> 下界通配符 读取数据操作
+           <? super Number> 上界通配符 添加数据操作
+
+3.Properties输入流：
+             作用：保存文档配置。
+            1.pro.load()     //添加文本路径方法。
+            2.pro.setProperty()     //添加数据方法。
+            3.pro.remove()     //删除数据方法。
+            4.pro.store()     //将此 Properties 表中的属性列表（键和元素对）写入输出流。
+
+
+	Throwable th=new Throwable("想吐。。。。。");
+	//System.out.println(th.getMessage());//打印信息
+	//th.printStackTrace();//打印堆栈信息
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                  
+流分类
+
+   按方向分:
+       输入流  读   
+       InputStream: 子类  FileInputStream  BufferedInputStream   ObjectInputStream    ByteArrayInputStream
+       Reader: 子类   FileReader   BufferedReder   InputStreamReader
+       输出流   写 
+        OutPutStream 子类 FileOutPutStream   BuffereOutPutStream  ObjectOutputStream   PrintStream  ByteArrayOutPutStream
+        Writer       子类:FileWriter        BufferedWriter    OutPutStreamWriter   
+       
+  按种类分:
+     字节流   InputStream   OutPutStream
+          子类  FileInputStream  BufferedInputStream   ObjectInputStream    ByteArrayInputStream
+          子类 FileOutPutStream   BuffereOutPutStream  ObjectOutputStream   PrintStream  ByteArrayOutPutStream
+     字符流   Reader        Writer
+         子类   FileReader   BufferedReder   InputStreamReader
+        子类:FileWriter        BufferedWriter    OutPutStreamWriter  
+        
+         
+ 按功能分:
+    节点流  :直接操作文件实例的流称为节点流
+     FileInputStream    FileOutPutStream  FileReader  FileWriter
+     ByteArrayInputStream   ByteArrayOutPutStream
+     过滤率 ：间接操作文件的流称为过滤流
+           其他 都为过滤流
+     
+ 
+ 流的四大抽象父类:
+    InputStream   OutPutStream  字节流父类
+    Reader        Writer        字符流父类
+ 
+    
+ 字节文件: 用记事本直接打不开的文件   都属于字节文件
+ 字符文件: 用记事本能够直接打开的文件  属于字符文件
+ 
+ 
+流的使用三部曲:
+	第一步:创建流(打开流)
+	第二步:使用
+	第三步:关闭   close方法关闭  
+	                      注意：建议close之前用flush(主要针对缓冲流) 
+                      
+
+着重点:                      
+1字符流的弊端:要求程序的编码格式要和被读取文件的编码格式一致  否则会产生中文乱码
+
+2桥梁流:InputStreamReader  字节流可以转换成字符流      优点:可以指定编码格式
+
+3缓冲流:1减少和硬盘文件的交互次数  从而可以提高性能
+      2并且可以手动设置缓冲区的大小   例如:  BufferInputStream(流,设置缓冲区大小数值)
+      3缓冲字符流    可以按行读取 写入
+      
+      
+4字节字符输出流:
+           构造方法(file)
+           构造方法(file,boolean(是否覆盖原文件中的内容))
+      
+5对象序列化   和  反序列化  技术掌握  
+
+
+6ByteArrayInputStream   ByteArrayOutPutStream   操作字节数组  了解
+
+
+
+
+
+线程：   java中有几种方法可以实现一个线程？请举例说明。
+
+	有两种方法：
+		    1.定义Thread类的子类，重写Thread类的run()方法，创建该子类的实例对象，调用对象的start()方法。
+
+		    2. 定义一个实现Runnable 接口的类并实现run()方法，创建该类实例对象，将其作为参数传递给Thread类的构造方法来创建Thread对象，
+		       调用Thread对象的start()方法。
+
+
+         sleep() 和 wait() 有什么区别?
+
+        调用sleep()方法，正在执行的线程主动让出CPU去执行其他线程，在sleep()方法指定的时间过后，CPU才会回到这个线程上继续往下执行，如果当前线程进入了同步锁，
+        sleep()方法并不会释放锁，即使当前线程使用sleep()方法让出了CPU，但其它被同步锁挡住了的线程也无法得到执行。wait()在一个已经进入了同步锁的线程内进行调用，
+        让当前线程暂时让出同步锁，以便其它正在等待此锁的线程可以得到同步锁并运行。当其它线程调用了notify()方法后，调用wait()方法的线程就会解除wait状态，
+        当再次获得同步锁后，程序可以继续向下执行。
+
+        要想解决线程间的通信问题，可以使用__wait（）____、___notify（）___、__notifyAll（）____方法。
+
+        线程的整个生命周期分为五个阶段，分别是__新建状态____、__就绪状态____、___运行状态___、___阻塞状态___、和__死亡状态___。
+
+        yield()方法只能让相同优先级或者更高优先级、处于___阻塞___状态的线程获得运行的机会。
+ 
+	
+
